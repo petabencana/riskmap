@@ -13,8 +13,8 @@
     <p id="requestedDate"> Posted at : ${requestedon}</p>
     <p>Status : </p>
     <p>${quantitysatisfied || 0}/${quantityrequested} Delivered</p>
-    <div class="progress-bar-container">
-      <div css="height:24px;width:${percentsatisfied}%"></div>
+    <div class="${configStatus === 'ACTIVE' ? 'progress-bar-container-succeded' : 'progress-bar-container'}">
+        <div css="height:24px;width:${percentsatisfied}%"></div>
     </div>
   </div>
 </template>

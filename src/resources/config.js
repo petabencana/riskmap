@@ -27,5 +27,7 @@ export class Config {
     }
     this.height_units = dep.height_units;
     this.deep_links = env[dep.name].deep_links;
+
+    this.status = 'ACTIVE';
   }
 }
