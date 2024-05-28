@@ -1,26 +1,36 @@
-### RiskMap
+# RiskMap
+
+## Overview
 Client map  application for [PetaBencana platform](https://petabencana.id) . Read more project information [here](https://github.com/urbanriskmap/petabencana-docs/blob/master/README.md).
 <br>
 <br>
-This platform is built using the Aurelia framework, which has a few prerequisites. To get started, follow the machine & application setup steps.
+This platform is built using the Aurelia framework, with a few prerequisites. To get started, follow the prerequiste & installation steps.
 ____
 
 ### Supported deployments
-* riskmap.us
+* mapakalamidad.ph
 * petabencana.id
-* riskmap.in
+* tabahinaqsha.pk
 
-### Machine setup
-* Install NodeJS >= 4.x
-    * You can [download it here](https://nodejs.org/en/).
-* Install NPM 3.x
+### Prerequiste
+* Install NodeJS = 14.x
+    * You can download it from [here](https://nodejs.org/en/).
+* Install NPM 
     * Even though you may have the latest NodeJS, that doesn't mean you have the latest version of NPM. You can check your version with `npm -v`. If you need to update, run `npm install npm -g`.
 * Install Aurelia CLI
     * `npm install aurelia-cli -g`
 
-### Application setup
+### Installation steps 
 * Install the project dependencies
     * `npm install`
+* Check if there is an environment.js file created in the src folder, if not create it. Check the troubleshooting guide for more details.
+* By default, the deployment will be Indonesian. If you want to deploy a new country, create a file in deployments under the aurelia_project folder with the file name corresponding to the two-letter country code. Check the map configuration for more details.
+* Add the new country deployment-specific env params in the environment.js file in the aurelia_project folder. Check the environment configuration for more details.
+
+### Steps to run the App
+* Run `npm start`. This will start a dev server on http://localhost:9000/
+* In the package.json file, within the scripts section, we utilize the $DEP variable in the start script to specify the country for local deployment. 
+* To run your specific deployment locally change the dep value to your specific country id, which was specified in the specific country file in the deployment folder.
 
 ___
 
@@ -63,18 +73,44 @@ ___
 ___
 
 ### Configuration
-* Environments
+* Environment configuration
+* In the environment.js file create a new object with the country name you want to add for deployment. The object should contain these key values.
     * *to run in local, update the following values in /aurelia_project/environments/local.js*
     * `debug` : (true/false) enable aurelia router logs in browser console
     * `testing` : (true/false) enable aurelia-testing plugin
+    * `title` : local deployment name/title of the platform
+    * `report_timeperiod` : This is the time period for reporting data
     * `tile_layer` : set map tile source url (allows using multiple tileLayers for development, staging, production, etc)
-    * `data_server` : set url of cognicity server (Default value is http://localhost:8001/ if using [cognicity-server] (https://github.com/urbanriskmap/cognicity-server-v3))
+    * `data_server` : set url of cognicity server (Default value is http://localhost:8001/ if using [cognicity-serverless] (https://github.com/petabencana/cognicity-serverless))
+    * `card_Server` : set url for generating cards
     * `app` : set it to map landing page url (Default value is http://localhost:9000/ if using this platform)
     * `default_language`: set it to one of the languages in `supported_languages` (Default is 'en')
     * `supported_languages`: set it to an array of languages you support (Default is ['en', 'id']. In case you add more languages, update  the array and add corresponding locale information in /src/resources/locales/TWO_LETTER_LANGUAGE_CODE.js)
+    * `deep_links` : This key holds an array of objects representing deep links to various platforms or services. Each object contains a name key indicating the platform ['facebook', 'twitter', 'telegram'] and a link key containing the corresponding deep link URL.
     * `enable_test_cardid`: set to false to disable cardid=test123 in prod environments (Default is true for local and dev environments)
 
 * Map Configuration
+* For the new country deployment, create a new file with the name of country code in the deployments folder. The file should contain the configuration of country codes for the map. The country coordinates will be obtained from a GIS expert. Add these details manually in this specific format.
+    * `id` : set the country code as an identifier
+    * `height_units` : Units used for height measurement in platform
+    * `supported_languages` : set it to an array of languages you support (Default is ['en', 'id']. In case you add more languages, update  the array and add corresponding locale information in /src/resources/locales/TWO_LETTER_LANGUAGE_CODE.js)
+    * `map` : set the map realted configuration fron the country. It should contain 8 sections.
+    * `instance_regions` : These are the provinces of the country, should contain these key and values
+        * `region` : set a readable country code with district code without number
+        * `bounds` : set the geographical bounds of the region using southwest['sw'] and northeast['ne'] coordinates
+        * `center` : set the coordinates of center point of region.
+    * `default_region` : set the default province with key values
+        * `region` : set the default name/id for identifier
+        * `bounds` : set the geographical bounds of the region using southwest['sw'] and northeast['ne'] coordinates
+        * `center` : set the coordinates of center point of 
+    * `sub_regions` : set the sub_regions of the region
+        * `province` : set the name of the province to which region belongs
+        * `center` : set the coordinates of center point of region.
+    * `region_center` : set the center point of the entire regin covered by the map. It's represented by latitude and longitude coordinates.
+    * `start_city_center` : set the center point of the intial city view when the map is loaded. It's represented by latitude and longitude coordinates.
+    * `starting_zoom` : set the initial zoom level of the map when it's first loaded.
+    * `minimum_zoom` : set the minimum level of zoom allowed on the map.
+* After adding a new country deployment specific codes in the deployment folder follow the below steps to deploy it locally.
     * *to add new cities, update the `instance regions` in /src/resources/config.js > Config.map*
     * change and add appropriate locales in deployment specific folders.
     * Change and add appropriate links in sidepane.js
@@ -84,12 +120,9 @@ ___
     * The value set in `default_region` sets the initial map view in http://localhost:9000/map
     * *Set `map.center` in /src/routes/cards/location/location.js to the center of the new instance region you have added in map config files*
 
-___    
-
+___   
 
 ### To build
-* Start the development server
-    * `npm start` This will start a dev server on http://localhost:9000
 * To generate a production build
     * Run `npm run build`
     * This will generate new scripts in scripts/ and also auto increment the reference numbers in index.html. Upload the following to the deployment destination (e.g. S3 bucket) protecting the structure:
@@ -99,6 +132,10 @@ scripts/*
 index.html
 favicon.ico
 ```
+___
+
+### Troubleshooting Guide
+* If there is no environment file is created. Then create a new file environment.js in the src folder and copy the contents from the environment.js file from the aurelia_project folder.
 ___
 
 ### Testing
