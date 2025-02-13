@@ -265,7 +265,6 @@ export class MapLayers {
                 let needs = JSON.parse(needResponse.response);
                 let need_count = needs.result.objects.output.geometries.length
                 let total_count = reports + need_count;
-                console.log('reports:',reports,'needs:',need_count, 'total:',total_count);
                 resolve({
                     reports: total_count,
                     timeperiod: self.config.report_timeperiod
