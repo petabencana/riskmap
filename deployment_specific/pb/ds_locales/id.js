@@ -383,11 +383,10 @@ const id = {
     }
   },
   'info_content': {
-    'intro': 'Selamat datang di platform simulasi PetaBencana.id! ***Harap diperhatikan, jika kamu berada dalam situasi bencana, cek PetaBencana.id untuk update bencana secara real-time.***',
+    'intro': 'PetaBencana.id adalah platform pemetaan bencana secara real-time untuk Indonesia. Sistem open-source ini menggunakan model chatbot kemanusiaan untuk mengumpulkan laporan bencana langsung dari masyarakat melalui media sosial. Laporan-laporan ini diverifikasi, disortir, dan ditampilkan pada peta berbasis web yang berfokus pada perangkat mobile secara real-time. Dengan menempatkan alat pengambilan keputusan langsung di tangan masyarakat, responden pertama, dan pemerintah daerah, PetaBencana.id membuka akses terhadap informasi bencana, sehingga semua orang dapat memperoleh informasi penting secara mudah.',
     'infoLink': '<a href="https://info.petabencana.id/" target="_blank">Info lebih lanjut, kunjungi Yayasan Peta Bencana</a>',
-    'p1': 'Dijalankan oleh Yayasan Peta Bencana, sebagai platform yang gratis dan transparan untuk tanggap darurat dan manajemen bencana di kota-kota besar di Asia Selatan dan Tenggara, platform ini terwujud melalui kolaborasi dengan beberapa mitra:',
-    'p2': '',
-    'p3': 'PetaBencana.id memanfaatkan penggunaan media sosial selama kejadian bencana untuk mengumpulkan, menyortir, dan menampilkan informasi bencana yang terkonfirmasi secara real-time. Didukung oleh <a href="https://cognicity.info/" target="_blank"> CogniCity Open Source Software </a>, PetaBencana.id mengubah sebaran informasi di media sosial menjadi informasi penting bagi warga, komunitas, dan lembaga pemerintah. Platform ini mengadopsi paradigma “manusia adalah sensor terbaik”, di mana laporan yang dikonfirmasi dikumpulkan langsung dari pengguna dengan menghilangkan pemrosesan data yang mahal dan memakan waktu. Kerangka kerja ini menciptakan data yang akurat dan real-time yang langsung tersedia bagi pengguna dan responden pertama.',
+    'p1': 'Untuk informasi lebih lanjut, kunjungi <a href="https://info.petabencana.id/" target="_blank"> https://info.petabencana.id </a>. Untuk umpan balik, komentar, atau permintaan kemitraan, hubungi <a href="mailTo:info@petabencana.id" target="_blank"> info@petabencana.id </a>,',
+    'p2': 'Dijalankan oleh <a href="https://info.petabencana.id/" target="_blank"> Disaster Map Foundation [Yayasan Peta Bencana] </a>, platform ini dapat terwujud melalui kolaborasi dengan beberapa mitra:',
     'partners': {
       'funding': 'Mitra Donor',
       'implementing': 'Mitra Pelaksana',

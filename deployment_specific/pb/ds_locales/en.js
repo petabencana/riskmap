@@ -382,11 +382,10 @@ const en = {
     }
   },
   'info_content': {
-    'intro': 'Welcome to PetaBencana.id training platform! ***Please note, if you are in a real disaster situation, check PetaBencana.id for real-time disaster updates.***',
+    'intro': 'PetaBencana.id is a real-time disaster mapping platform for Indonesia. The open-source system uses a novel humanitarian chatbot model to crowdsource disaster reports directly from people on the ground via social media. These reports are verified, sorted, and displayed on a web-based, mobile-centric map in real-time. By placing decision-making tools directly in the hands of residents, first responders, and local governments, PetaBencana.id democratizes disaster response, making critical information freely accessible to everyone.',
     'infoLink': '<a href="https://info.petabencana.id/" target="_blank">To know more, visit Petabencana Foundation</a>',
-    'p1': 'Run by Yayasan Peta Bencana, as a free, transparent platform for emergency response and disaster management in megacities in South and Southeast Asia, the platform is made possible through collaboration with several partners:',
-    'p2': '',
-    'p3': 'PetaBencana.id harnesses the use of social media during emergency events to gather, sort, and display confirmed hazard information in real-time. Powered by <a href="https://cognicity.info/" target="_blank"> CogniCity Open Source Software </a>, PetaBencana.id transforms the noise of social media into critical information for residents, communities, and government agencies.The platform adopts a “people are the best sensors” paradigm, where confirmed reports are collected directly from the users at street level in a manner that removes expensive and time-consuming data processing. This framework creates accurate, real-time data which is immediately made available for users and first responders.',
+    'p1': 'For more information, visit <a href="https://info.petabencana.id/" target="_blank"> https://info.petabencana.id </a>. For feedback, comments, or partnership requests please contact <a href="mailTo:info@petabencana.id" target="_blank"> info@petabencana.id </a>,',
+    'p2': 'Run by <a href="https://info.petabencana.id/" target="_blank"> Disaster Map Foundation [Yayasan Peta Bencana] </a>, the platform is made possible through collaboration with several partners:',
     'partners': {
       'funding': 'Funding Partner',
       'implementing': 'Implementing partner',
